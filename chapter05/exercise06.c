@@ -18,3 +18,5 @@ int main(int argc, char *argv[]) {
     }
     return 0;
 }
+
+/* Waitpid() is usefull to wait for a specific  (child or group processes) to end */

@@ -12,7 +12,7 @@ void goodbye(int);
 int main(int argc, char *argv[]) {
     pid_t ppid = getpid();
     int rc = fork();
-    
+
     if (rc < 0) { // fork failed; exit
         fprintf(stderr, "fork failed\n");
         exit(1);
@@ -21,7 +21,7 @@ int main(int argc, char *argv[]) {
         printf("Hallo\n");
         kill(ppid, SIGINT);
     } else {
-        // parent 
+        // parent
         signal(SIGINT, goodbye);
         sleep(1);
     }
@@ -32,3 +32,8 @@ void goodbye(int signal)
 {
         printf("Goodbye\n");
 }
+
+/* kill() and signal() reaches the same as wait()
+kill() pauses the process and creates a Signal (SIGINT)
+signal() catches the a specific Signal ( in our case the created Signal SIGINT) and
+executes the function goodbye */

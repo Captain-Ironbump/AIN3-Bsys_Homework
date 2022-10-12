@@ -11,7 +11,7 @@ int main(int argc, char *argv[]) {
     if (file < 0) {
         return -1;
     }
-    
+
     int rc = fork();
     if (rc < 0) {
         // fork failed
@@ -22,9 +22,11 @@ int main(int argc, char *argv[]) {
         printf("file child %d\n", file);
         write(file, "file child\n", 11);
     } else {
-        // parent goes down this path 
+        // parent goes down this path
         printf("file parent %d\n", file);
         write(file, "file parent\n", 12);
     }
     return 0;
 }
+
+/* Parent and child can access the file descriptor */

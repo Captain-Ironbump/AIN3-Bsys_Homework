@@ -18,3 +18,6 @@ int main(int argc, char *argv[]) {
     }
     return 0;
 }
+
+/* wait() retunrs processID of child, im case of Error, -1 will be returned
+if wait() will be called in child, then an Error (-1) will be returned. */
